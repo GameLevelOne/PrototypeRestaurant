@@ -8,29 +8,26 @@ public class DeviceOrientation : MonoBehaviour {
 		get{ return instance; }
 	}
 
-	void Awake()
+	protected void Awake()
 	{
 		if(instance != null && instance != this) Destroy(gameObject);
 		else instance = this;
-		
+
 		DontDestroyOnLoad(this.gameObject);
 	}
 
 	IEnumerator Start()
 	{
 		while(true) {
-			
 			if(Screen.orientation != ScreenOrientation.Portrait){
 				if( Input.deviceOrientation == UnityEngine.DeviceOrientation.LandscapeLeft && Screen.orientation != ScreenOrientation.LandscapeLeft )
 					Screen.orientation = ScreenOrientation.LandscapeLeft;
 				if( Input.deviceOrientation == UnityEngine.DeviceOrientation.LandscapeRight && Screen.orientation != ScreenOrientation.LandscapeRight )
 					Screen.orientation = ScreenOrientation.LandscapeRight;
 			}
-
 			yield return new WaitForSeconds(0.5f);
 		}
 	}
-
 
 	public void SetPortrait()
 	{
