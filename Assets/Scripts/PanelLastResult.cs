@@ -23,7 +23,7 @@ public class PanelLastResult : BasePanel {
 
 			DateTime today = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
 
-			if(lastResultDay.CompareTo(today) < 0){
+			if(lastResultDay.CompareTo(today) <= 0){
 				ShowResult();
 			}else{
 				
@@ -61,6 +61,17 @@ public class PanelLastResult : BasePanel {
 		validUntil.gameObject.SetActive(true);
 		textLastResultDate.gameObject.SetActive(true);
 		textLastResultAmount.text = PlayerData.Instance.LastResultAmount.ToString()+" %";
-		textLastResultDate.text = PlayerData.Instance.LastResultDate.ToString();
+
+		DateTime dateFromData = PlayerData.Instance.LastResultDate;
+
+		print(dateFromData.Month);
+		string dateString = MonthString(dateFromData.Month) +" " + dateFromData.Day.ToString() + ", " + dateFromData.Year.ToString();
+		textLastResultDate.text = dateString;
+	}
+
+	string MonthString(int mon)
+	{
+		string[] m = new string[12]{"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+		return m[mon-1];
 	}
 }

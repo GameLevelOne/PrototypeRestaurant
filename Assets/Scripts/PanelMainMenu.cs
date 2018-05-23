@@ -33,6 +33,7 @@ public class PanelMainMenu : BasePanel {
 
 	public void ButtonChallengeOnClick()
 	{
+		PlayerData.Instance.IsTraining = false;
 		Hide();
 		panelGameSelection.Show();
 	}

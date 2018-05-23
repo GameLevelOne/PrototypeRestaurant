@@ -35,5 +35,10 @@ public class PlayerData : MonoBehaviour {
 		get{ return DateTime.Parse( PlayerPrefs.GetString ( Constants.PrefKey.Strings.LAST_RESULT_EXPIRED_DATE,DateTime.Now.ToString() ) ); }
 		set{ PlayerPrefs.SetString( Constants.PrefKey.Strings.LAST_RESULT_EXPIRED_DATE,value.ToString() ); }
 	}
+
+	public string SceneToLoad{
+		get{ return PlayerPrefs.GetString(Constants.PrefKey.Strings.SCENE_TO_LOAD,Constants.SceneName.SCENE_MAIN);}
+		set{PlayerPrefs.SetString(Constants.PrefKey.Strings.SCENE_TO_LOAD,value);}
+	}
 	#endregion
 }
