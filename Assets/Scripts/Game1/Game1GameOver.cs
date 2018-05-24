@@ -8,6 +8,7 @@ using System;
 public class Game1GameOver : MonoBehaviour {
 	public Text textScore;
 	public Text textDiscount;
+	public GameObject redeemObj;
 	public GameObject newHS;
 
 	private int highScore;
@@ -33,8 +34,10 @@ public class Game1GameOver : MonoBehaviour {
 			textDiscount.gameObject.SetActive(true);
 
 			PlayerData.Instance.HasResult = true;
+			redeemObj.SetActive(true);
 		}else{
-			textDiscount.gameObject.SetActive(false);
+//			textDiscount.gameObject.SetActive(false);
+			redeemObj.SetActive(false);
 		}
 
 	}
@@ -46,5 +49,11 @@ public class Game1GameOver : MonoBehaviour {
 	public void BackToMenu () {
 		PlayerData.Instance.SceneToLoad = Constants.SceneName.SCENE_MAIN;
 		SceneManager.LoadScene(Constants.SceneName.SCENE_PRELOAD);
+	}
+
+	public void ButtonInvalidateOnClick()
+	{
+		PlayerData.Instance.HasResult = false;
+		//successful
 	}
 }

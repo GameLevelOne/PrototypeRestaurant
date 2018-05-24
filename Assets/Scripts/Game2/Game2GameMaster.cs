@@ -7,6 +7,7 @@ using System;
 public class Game2GameMaster : MonoBehaviour {
 	public Text textScore, textHighscore, textDiscount;
 	public Game2MenuManager menuManager;
+	public GameObject redeemObj;
 
 	private static int playerScore;
 
@@ -50,9 +51,17 @@ public class Game2GameMaster : MonoBehaviour {
 			textDiscount.gameObject.SetActive(true);
 
 			PlayerData.Instance.HasResult = true;
+			redeemObj.SetActive(true);
 		}else{
-			textDiscount.gameObject.SetActive(false);
+//			textDiscount.gameObject.SetActive(false);
+			redeemObj.SetActive(false);
 		}
 
+	}
+
+	public void ButtonInvalidateOnClick()
+	{
+		PlayerData.Instance.HasResult = false;
+		//successful
 	}
 }

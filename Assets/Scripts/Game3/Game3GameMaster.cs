@@ -7,6 +7,7 @@ using System;
 public class Game3GameMaster : MonoBehaviour {
 	public Text textTimer, textHighscore, textDiscount;
 	public Game3MenuManager Game3MenuManager;
+	public GameObject redeemObj;
 
 	public int playerTime;
 	private float timer;
@@ -55,8 +56,17 @@ public class Game3GameMaster : MonoBehaviour {
 			textDiscount.gameObject.SetActive(true);
 
 			PlayerData.Instance.HasResult = true;
+
+			redeemObj.SetActive(true);
 		}else{
-			textDiscount.gameObject.SetActive(false);
+//			textDiscount.gameObject.SetActive(false);
+			redeemObj.SetActive(false);
 		}
+	}
+
+	public void ButtonInvalidateOnClick()
+	{
+		PlayerData.Instance.HasResult = false;
+		//successful
 	}
 }

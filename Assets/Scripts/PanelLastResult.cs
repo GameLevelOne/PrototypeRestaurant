@@ -6,7 +6,7 @@ public class PanelLastResult : BasePanel {
 	public PanelMainMenu panelMainMenu;
 
 	[Space(15f)]
-	public GameObject validUntil;
+	public GameObject redeemObject;
 	public Text textLastResultAmount;
 	public Text textLastResultDate;
 
@@ -51,14 +51,14 @@ public class PanelLastResult : BasePanel {
 	{
 		PlayerData.Instance.HasResult = false;
 
-		validUntil.gameObject.SetActive(false);
+		redeemObject.SetActive(false);
 		textLastResultDate.gameObject.SetActive(false);
 		textLastResultAmount.text = "No Result";
 	}
 
 	void ShowResult()
 	{
-		validUntil.gameObject.SetActive(true);
+		
 		textLastResultDate.gameObject.SetActive(true);
 		textLastResultAmount.text = PlayerData.Instance.LastResultAmount.ToString()+" %";
 
@@ -67,11 +67,19 @@ public class PanelLastResult : BasePanel {
 		print(dateFromData.Month);
 		string dateString = MonthString(dateFromData.Month) +" " + dateFromData.Day.ToString() + ", " + dateFromData.Year.ToString();
 		textLastResultDate.text = dateString;
+
+		redeemObject.SetActive(true);
 	}
 
 	string MonthString(int mon)
 	{
 		string[] m = new string[12]{"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 		return m[mon-1];
+	}
+
+	public void ButtonInvalidateOnClick()
+	{
+		PlayerData.Instance.HasResult = false;
+		//successful
 	}
 }
