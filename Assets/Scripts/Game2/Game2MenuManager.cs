@@ -8,6 +8,7 @@ public class Game2MenuManager : MonoBehaviour {
 	public GameObject gameoverUI, menuUI, newHighscore, player, textScore;
 
 	void Awake () {
+		DeviceOrientation.Instance.SetLandscape();
 		if (Time.timeScale == 1) {
 			Time.timeScale = 0;
 		}
@@ -20,6 +21,12 @@ public class Game2MenuManager : MonoBehaviour {
 		player.SetActive (true);
 
 		Time.timeScale = 1;
+	}
+
+	public void ButtonExitOnClick()
+	{
+		PlayerData.Instance.SceneToLoad = Constants.SceneName.SCENE_MAIN;
+		SceneManager.LoadScene(Constants.SceneName.SCENE_PRELOAD);
 	}
 
 	public void RestartGame () { //0 if back to Menu, 1 if Restart

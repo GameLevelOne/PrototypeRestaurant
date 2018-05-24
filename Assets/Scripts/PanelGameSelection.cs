@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PanelGameSelection : BasePanel {
 	public PanelMainMenu panelMainMenu;
+	public PopupInputCode popupInputCode;
 
 	public override void Show ()
 	{
@@ -31,7 +32,11 @@ public class PanelGameSelection : BasePanel {
 		default: break;
 		}
 
-		SceneManager.LoadScene(Constants.SceneName.SCENE_PRELOAD);
+		if(PlayerData.Instance.IsTraining){
+			SceneManager.LoadScene(Constants.SceneName.SCENE_PRELOAD);
+		}else{
+			popupInputCode.Show();
+		}
 	}
 	#endregion
 }

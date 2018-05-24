@@ -14,6 +14,7 @@ public class ScenePreloadManager : MonoBehaviour {
 
 	IEnumerator Start()
 	{
+		DeviceOrientation.Instance.SetPortrait();
 		doneLoading = false;
 
 		asyncOperation = SceneManager.LoadSceneAsync(PlayerData.Instance.SceneToLoad);

@@ -5,8 +5,6 @@ public class PanelMainMenu : BasePanel {
 	public PanelLastResult panelLastResult;
 	public PanelGameSelection panelGameSelection;
 
-	bool isTrain = false;
-
 	public override void Show ()
 	{
 		base.Show ();

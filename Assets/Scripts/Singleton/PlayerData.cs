@@ -7,6 +7,8 @@ public class PlayerData : MonoBehaviour {
 		get{ return instance; }
 	}
 
+	
+
 	protected void Awake()
 	{
 		if(instance != null && instance != this) Destroy(gameObject);

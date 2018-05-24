@@ -6,8 +6,8 @@ public class SceneMainManager : MonoBehaviour {
 
 	void Start()
 	{
-		LoadLastResult();
 		DeviceOrientation.Instance.SetPortrait();
+		LoadLastResult();
 		panelMainMenu.Show();
 	}
 
@@ -23,7 +23,7 @@ public class SceneMainManager : MonoBehaviour {
 
 			DateTime today = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
 
-			if(lastResultDay.CompareTo(today) > 0){
+			if(today.CompareTo(lastResultDay) > 0){
 				PlayerData.Instance.HasResult = false;
 			}
 		}
