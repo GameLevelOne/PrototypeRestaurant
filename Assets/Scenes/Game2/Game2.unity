@@ -809,7 +809,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 913677338}
-        m_MethodName: RestartGame
+        m_MethodName: ButtonExitOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1551,7 +1551,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAY AGAIN
+  m_Text: 'MAIN
+
+    MENU'
 --- !u!222 &1223259324
 CanvasRenderer:
   m_ObjectHideFlags: 0

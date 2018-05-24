@@ -495,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textTimer: {fileID: 1118629695}
   textHighscore: {fileID: 859645637}
-  textDiscount: {fileID: 0}
+  textDiscount: {fileID: 1105598795}
   Game3MenuManager: {fileID: 495038903}
   playerTime: 0
 --- !u!1 &495038898

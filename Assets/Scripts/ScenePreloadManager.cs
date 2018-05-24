@@ -17,6 +17,7 @@ public class ScenePreloadManager : MonoBehaviour {
 		DeviceOrientation.Instance.SetPortrait();
 		doneLoading = false;
 
+		print(PlayerData.Instance.SceneToLoad);
 		asyncOperation = SceneManager.LoadSceneAsync(PlayerData.Instance.SceneToLoad);
 		asyncOperation.allowSceneActivation = false;
 
@@ -31,9 +32,12 @@ public class ScenePreloadManager : MonoBehaviour {
 				textProgress.text = "100 %";
 				doneLoading = true;
 			}
+			print("Waiting "+asyncOperation.progress);
+			yield return null;
 		}
-
-		yield return new WaitForSeconds(2f);
 		asyncOperation.allowSceneActivation = true;
+		print("Done Loading");
+
+		yield return null;
 	}
 }
