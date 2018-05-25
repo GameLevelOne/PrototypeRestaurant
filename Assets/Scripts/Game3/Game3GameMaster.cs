@@ -8,6 +8,8 @@ public class Game3GameMaster : MonoBehaviour {
 	public Text textTimer, textHighscore, textDiscount;
 	public Game3MenuManager Game3MenuManager;
 	public GameObject redeemObj;
+	public GameObject invalidatePrompt;
+	public GameObject invalidateSuccessful;
 
 	public int playerTime;
 	private float timer;
@@ -58,6 +60,8 @@ public class Game3GameMaster : MonoBehaviour {
 			PlayerData.Instance.HasResult = true;
 
 			redeemObj.SetActive(true);
+			invalidatePrompt.SetActive(true);
+			invalidateSuccessful.SetActive(false);
 		}else{
 //			textDiscount.gameObject.SetActive(false);
 			redeemObj.SetActive(false);
@@ -67,6 +71,8 @@ public class Game3GameMaster : MonoBehaviour {
 	public void ButtonInvalidateOnClick()
 	{
 		PlayerData.Instance.HasResult = false;
+		invalidatePrompt.SetActive(false);
+		invalidateSuccessful.SetActive(true);
 		//successful
 	}
 }

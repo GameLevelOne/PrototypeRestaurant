@@ -9,7 +9,10 @@ public class Game1GameOver : MonoBehaviour {
 	public Text textScore;
 	public Text textDiscount;
 	public GameObject redeemObj;
+	public GameObject invalidatePrompt;
+	public GameObject invalidateSuccessful;
 	public GameObject newHS;
+
 
 	private int highScore;
 
@@ -35,6 +38,8 @@ public class Game1GameOver : MonoBehaviour {
 
 			PlayerData.Instance.HasResult = true;
 			redeemObj.SetActive(true);
+			invalidatePrompt.SetActive(true);
+			invalidateSuccessful.SetActive(false);
 		}else{
 //			textDiscount.gameObject.SetActive(false);
 			redeemObj.SetActive(false);
@@ -54,6 +59,8 @@ public class Game1GameOver : MonoBehaviour {
 	public void ButtonInvalidateOnClick()
 	{
 		PlayerData.Instance.HasResult = false;
+		invalidatePrompt.SetActive(false);
+		invalidateSuccessful.SetActive(true);
 		//successful
 	}
 }

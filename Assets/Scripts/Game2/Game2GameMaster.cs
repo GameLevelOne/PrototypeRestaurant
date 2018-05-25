@@ -8,6 +8,8 @@ public class Game2GameMaster : MonoBehaviour {
 	public Text textScore, textHighscore, textDiscount;
 	public Game2MenuManager menuManager;
 	public GameObject redeemObj;
+	public GameObject invalidatePrompt;
+	public GameObject invalidateSuccessful;
 
 	private static int playerScore;
 
@@ -52,6 +54,8 @@ public class Game2GameMaster : MonoBehaviour {
 
 			PlayerData.Instance.HasResult = true;
 			redeemObj.SetActive(true);
+			invalidatePrompt.SetActive(true);
+			invalidateSuccessful.SetActive(false);
 		}else{
 //			textDiscount.gameObject.SetActive(false);
 			redeemObj.SetActive(false);
@@ -62,6 +66,8 @@ public class Game2GameMaster : MonoBehaviour {
 	public void ButtonInvalidateOnClick()
 	{
 		PlayerData.Instance.HasResult = false;
+		invalidatePrompt.SetActive(false);
+		invalidateSuccessful.SetActive(true);
 		//successful
 	}
 }

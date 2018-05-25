@@ -6,9 +6,19 @@ public class PanelLastResult : BasePanel {
 	public PanelMainMenu panelMainMenu;
 
 	[Space(15f)]
+	public RectTransform scrollContent;
 	public GameObject redeemObject;
+	public GameObject invalidatePrompt;
+	public GameObject invalidateSuccessful;
 	public Text textLastResultAmount;
 	public Text textLastResultDate;
+
+	Vector2 scrollContentOriginPos;
+
+	void Awake()
+	{
+		scrollContentOriginPos = new Vector2(0,-232.85f);
+	}
 
 	public override void Show ()
 	{
@@ -31,7 +41,9 @@ public class PanelLastResult : BasePanel {
 			}
 		}
 
+
 		base.Show ();
+		scrollContent.anchoredPosition = scrollContentOriginPos;
 	}
 
 	public override void Hide ()
@@ -69,6 +81,8 @@ public class PanelLastResult : BasePanel {
 		textLastResultDate.text = dateString;
 
 		redeemObject.SetActive(true);
+		invalidatePrompt.SetActive(true);
+		invalidateSuccessful.SetActive(false);
 	}
 
 	string MonthString(int mon)
@@ -80,6 +94,8 @@ public class PanelLastResult : BasePanel {
 	public void ButtonInvalidateOnClick()
 	{
 		PlayerData.Instance.HasResult = false;
+		invalidatePrompt.SetActive(false);
+		invalidateSuccessful.SetActive(true);
 		//successful
 	}
 }
